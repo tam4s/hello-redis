@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - 8888:8888
+  redis:
+    image: redis
+    ### Uncomment to expose Redis for the docker host.
+    # ports:
+    #  - 6379:6379
